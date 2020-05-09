@@ -15,7 +15,6 @@ export class DrinkPage implements OnInit{
     this.activatedRoute.queryParams.subscribe(async (res) => {
       this.items = JSON.parse(res.special);
       this.items = this.items.map((item) => item.value);
-      console.log(this.items);
       this.getDrinks();
     })
   }
@@ -33,7 +32,6 @@ export class DrinkPage implements OnInit{
       this.items.forEach((drink) => {
         this.drinksService.getDrink(drink).subscribe((drinks) => {
           this.drinks = drinks.drinks;
-          console.log(this.drinks);
         })
       })
     }

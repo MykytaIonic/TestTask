@@ -35,7 +35,6 @@ export class FilterPage implements OnInit {
     this.checkedItems = this.items.filter(value => {
       return value.isChecked;
     });
-    console.log(this.checkedItems);
     let navigationExtras: NavigationExtras = {
       queryParams: {
         special: JSON.stringify(this.checkedItems)

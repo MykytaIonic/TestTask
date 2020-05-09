@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
- 
+import { environment } from '../../environments/environment'; 
+
 @Injectable({
   providedIn: 'root'
 })
 export class DrinkService {
-  private url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
+  private url = environment.url;
 
   constructor(private http: HttpClient) { }
  
   public getDrink(drink): Observable<any> {
-    console.log(drink);
-    return this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drink}`);
+    return this.http.get(this.url+drink);
   }
 }
