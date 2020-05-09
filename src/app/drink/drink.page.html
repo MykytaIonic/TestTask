@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <p class="title">Drinks</p>
+    </ion-title>
+    <div class="button" slot="end">
+      <ion-icon class="filter" name="funnel-sharp" (click)="filter()"></ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let drink of drinks">
+      <ion-item>
+        <img class="drink_image" src="{{ drink.strDrinkThumb }}"  alt="noFile"/>
+        <p>{{ drink.strDrink }}</p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

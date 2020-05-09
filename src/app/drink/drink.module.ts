@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
+import { DrinkPage } from './drink.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { DrinkPageRoutingModule } from './drink-routing.module';
 
 
 @NgModule({
@@ -12,8 +12,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    DrinkPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [DrinkPage]
 })
-export class HomePageModule {}
+export class DrinkPageModule {}
