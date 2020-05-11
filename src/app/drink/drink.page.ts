@@ -29,9 +29,12 @@ export class DrinkPage implements OnInit{
 
   private getDrinks(): void {
     if(this.items.length != 0) {
+      this.drinks = [];
       this.items.forEach((drink) => {
         this.drinksService.getDrink(drink).subscribe((drinks) => {
-          this.drinks = drinks.drinks;
+          drinks.drinks.map((drink) => {
+            this.drinks.push(drink);
+          })
         })
       })
     }
