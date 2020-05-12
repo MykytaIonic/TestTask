@@ -12,6 +12,6 @@ export class DrinkService {
   constructor(private http: HttpClient) { }
  
   public getDrink(drink): Observable<any> {
-    return this.http.get(this.url+drink);
+    return this.http.get(this.url+drink[0]);
   }
 }

@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScrollEnd)="logScrollEnd($event)">
   <ion-list>
     <ion-item-sliding *ngFor="let drink of drinks">
       <ion-item>

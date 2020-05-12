@@ -10,6 +10,7 @@ import { DrinkService } from '../services/drink.service';
 export class DrinkPage implements OnInit{
   public drinks = [];
   public items = [];
+  public i = 1;
 
   constructor( public route: Router, private drinksService: DrinkService, public activatedRoute: ActivatedRoute ) {
     this.activatedRoute.queryParams.subscribe(async (res) => {
@@ -23,6 +24,17 @@ export class DrinkPage implements OnInit{
     this.getDrinks();
   }
 
+  logScrollEnd(event) {
+    if (this.items.length != 0) {
+      this.drinksService.getDrink(this.items).subscribe((drinks) => {
+        drinks.drinks.map((drink) => {
+          this.drinks.push(drink);
+        })
+      })
+      this.items.shift();
+    }
+  }
+
   public filter(): void {
     this.route.navigate(['/filter']);
   }
@@ -30,13 +42,12 @@ export class DrinkPage implements OnInit{
   private getDrinks(): void {
     if(this.items.length != 0) {
       this.drinks = [];
-      this.items.forEach((drink) => {
-        this.drinksService.getDrink(drink).subscribe((drinks) => {
+        this.drinksService.getDrink(this.items).subscribe((drinks) => {
           drinks.drinks.map((drink) => {
             this.drinks.push(drink);
           })
         })
-      })
+      this.items.shift();
     }
   }
 
